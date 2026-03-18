@@ -1,12 +1,12 @@
 /**
  * Variables Configuration
  * =======================
- * 
+ *
  * CENTRAL PLACE TO DEFINE ALL SHARED VARIABLES
- * 
+ *
  * This file defines all variables that can be shared across sections.
  * AI agents should read this file to understand what variables are available.
- * 
+ *
  * USAGE:
  * 1. Define variables here with their default values and metadata
  * 2. Use them in any section with: const x = useVar('variableName', defaultValue)
@@ -53,108 +53,181 @@ export interface VariableDefinition {
 
 /**
  * =====================================================
- * 🎯 DEFINE YOUR VARIABLES HERE
+ * 🎯 ALGEBRAIC IDENTITIES LESSON VARIABLES
  * =====================================================
- * 
- * SUPPORTED TYPES:
- * 
- * 1. NUMBER (slider):
- *    { defaultValue: 5, type: 'number', min: 0, max: 10, step: 1 }
- * 
- * 2. TEXT (free text):
- *    { defaultValue: 'Hello', type: 'text', placeholder: 'Enter text...' }
- * 
- * 3. SELECT (dropdown):
- *    { defaultValue: 'sine', type: 'select', options: ['sine', 'cosine', 'tangent'] }
- * 
- * 4. BOOLEAN (toggle):
- *    { defaultValue: true, type: 'boolean' }
- * 
- * 5. ARRAY (list of numbers):
- *    { defaultValue: [1, 2, 3], type: 'array' }
- * 
- * 6. OBJECT (complex data):
- *    { defaultValue: { x: 5, y: 10 }, type: 'object', schema: '{ x: number, y: number }' }
  */
 export const variableDefinitions: Record<string, VariableDefinition> = {
-    // ========================================
-    // ADD YOUR VARIABLES HERE
-    // ========================================
-
-    // Uncomment and modify these examples for your lesson:
-
-    /*
     // ─────────────────────────────────────────
-    // NUMBER - Use with sliders
+    // INTRODUCTION SECTION
     // ─────────────────────────────────────────
-    myValue: {
+    introNumber: {
+        defaultValue: 99,
+        type: 'number',
+        label: 'Introduction Number',
+        description: 'Number for the mental math trick demonstration',
+        min: 90,
+        max: 109,
+        step: 1,
+        color: '#62D0AD',
+    },
+
+    // ─────────────────────────────────────────
+    // SQUARE OF A SUM SECTION
+    // ─────────────────────────────────────────
+    valueA: {
+        defaultValue: 3,
+        type: 'number',
+        label: 'Value a',
+        description: 'First term in (a+b)²',
+        min: 1,
+        max: 6,
+        step: 1,
+        color: '#62D0AD',
+    },
+    valueB: {
+        defaultValue: 2,
+        type: 'number',
+        label: 'Value b',
+        description: 'Second term in (a+b)²',
+        min: 1,
+        max: 6,
+        step: 1,
+        color: '#8E90F5',
+    },
+    activeHighlight: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Active Highlight',
+        description: 'Currently highlighted region in the square diagram',
+        color: '#F7B23B',
+        bgColor: 'rgba(247, 178, 59, 0.15)',
+    },
+
+    // ─────────────────────────────────────────
+    // SQUARE OF A DIFFERENCE SECTION
+    // ─────────────────────────────────────────
+    diffValueA: {
         defaultValue: 5,
         type: 'number',
-        label: 'My Value',
-        description: 'A number that controls something',
-        unit: 'm',           // optional unit display
-        min: 0,
-        max: 10,
-        step: 0.5,
+        label: 'Value a (difference)',
+        description: 'First term in (a-b)²',
+        min: 3,
+        max: 8,
+        step: 1,
+        color: '#62D0AD',
+    },
+    diffValueB: {
+        defaultValue: 2,
+        type: 'number',
+        label: 'Value b (difference)',
+        description: 'Second term in (a-b)²',
+        min: 1,
+        max: 4,
+        step: 1,
+        color: '#F4A89A',
     },
 
     // ─────────────────────────────────────────
-    // TEXT - Free text input
+    // DIFFERENCE OF SQUARES SECTION
     // ─────────────────────────────────────────
-    lessonTitle: {
-        defaultValue: 'My Lesson',
+    dosValueA: {
+        defaultValue: 4,
+        type: 'number',
+        label: 'Value a (difference of squares)',
+        description: 'First term in (a+b)(a-b)',
+        min: 2,
+        max: 7,
+        step: 1,
+        color: '#62D0AD',
+    },
+    dosValueB: {
+        defaultValue: 2,
+        type: 'number',
+        label: 'Value b (difference of squares)',
+        description: 'Second term in (a+b)(a-b)',
+        min: 1,
+        max: 4,
+        step: 1,
+        color: '#AC8BF9',
+    },
+
+    // ─────────────────────────────────────────
+    // ASSESSMENT QUESTIONS
+    // ─────────────────────────────────────────
+    answerSumMiddleTerm: {
+        defaultValue: '',
         type: 'text',
-        label: 'Lesson Title',
-        description: 'The title of your lesson',
-        placeholder: 'Enter a title...',
+        label: 'Answer: Middle term of (a+b)²',
+        description: 'Student answer for middle term question',
+        placeholder: '?',
+        correctAnswer: '2ab',
+        color: '#62D0AD',
     },
-
-    // ─────────────────────────────────────────
-    // SELECT - Dropdown with options
-    // ─────────────────────────────────────────
-    difficulty: {
-        defaultValue: 'medium',
+    answerExpandSum: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Answer: Expand (x+4)²',
+        description: 'Student answer for expansion question',
+        placeholder: '?',
+        correctAnswer: '64',
+        color: '#8E90F5',
+    },
+    answerDiffSign: {
+        defaultValue: '',
         type: 'select',
-        label: 'Difficulty',
-        description: 'The difficulty level of the lesson',
-        options: ['easy', 'medium', 'hard', 'expert'],
+        label: 'Answer: Sign in (a-b)²',
+        description: 'Student choice for sign question',
+        placeholder: '?',
+        correctAnswer: 'minus',
+        options: ['plus', 'minus'],
+        color: '#F4A89A',
     },
-
-    // ─────────────────────────────────────────
-    // BOOLEAN - Toggle switch
-    // ─────────────────────────────────────────
-    showHints: {
-        defaultValue: true,
-        type: 'boolean',
-        label: 'Show Hints',
-        description: 'Toggle to show or hide hints',
+    answerDiffExpand: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Answer: Expand (7-2)²',
+        description: 'Student answer for difference expansion',
+        placeholder: '?',
+        correctAnswer: '25',
+        color: '#F4A89A',
     },
-
-    // ─────────────────────────────────────────
-    // ARRAY - List of numbers
-    // ─────────────────────────────────────────
-    dataPoints: {
-        defaultValue: [1, 4, 9, 16, 25],
-        type: 'array',
-        label: 'Data Points',
-        description: 'Y-values for plotting a graph',
+    answerDosResult: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Answer: Difference of squares result',
+        description: 'Student answer for (a+b)(a-b) = ?',
+        placeholder: '?',
+        correctAnswer: 'a²-b²',
+        color: '#AC8BF9',
     },
-
-    // ─────────────────────────────────────────
-    // OBJECT - Complex structured data
-    // ─────────────────────────────────────────
-    graphSettings: {
-        defaultValue: { 
-            xMin: -10, 
-            xMax: 10, 
-            showGrid: true 
-        },
-        type: 'object',
-        label: 'Graph Settings',
-        description: 'Configuration for the graph display',
-        schema: '{ xMin: number, xMax: number, showGrid: boolean }',
+    answerDosCalculation: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Answer: Calculate 13×7',
+        description: 'Student answer for 13×7 using identity',
+        placeholder: '?',
+        correctAnswer: '91',
+        color: '#AC8BF9',
     },
-    */
+    answerWhichIdentity: {
+        defaultValue: '',
+        type: 'select',
+        label: 'Answer: Which identity',
+        description: 'Student choice for identifying correct identity',
+        placeholder: '?',
+        correctAnswer: '(a-b)²',
+        options: ['(a+b)²', '(a-b)²', '(a+b)(a-b)'],
+        color: '#F7B23B',
+    },
+    answerMissingTerm: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Answer: Missing term',
+        description: 'Student answer for missing term in expansion',
+        placeholder: '?',
+        correctAnswer: '30x',
+        color: '#62D0AD',
+    },
 };
 
 /**

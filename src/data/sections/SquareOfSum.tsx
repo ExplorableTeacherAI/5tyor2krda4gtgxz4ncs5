@@ -373,7 +373,7 @@ export const squareOfSumBlocks: ReactElement[] = [
     <StackLayout key="layout-sum-middle-term" maxWidth="xl">
         <Block id="sum-middle-term-explanation" padding="sm">
             <EditableParagraph id="para-sum-middle-term" blockId="sum-middle-term-explanation">
-                The 2ab term is crucial. It represents the two rectangular pieces that appear when you split the large square. Forgetting this term is the most common error. Remember: when you see (a + b)², always think about those two rectangles hiding inside.
+                <strong style={{ color: "#F7B23B" }}>The 2ab term is crucial.</strong> It represents the two rectangular pieces that appear when you split the large square. Forgetting this term is the most common error. Remember: when you see (a + b)², always think about those two rectangles hiding inside.
             </EditableParagraph>
         </Block>
     </StackLayout>,
